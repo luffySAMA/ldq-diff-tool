@@ -1,20 +1,20 @@
 <template>
   <div id="app">
-    <landing-page></landing-page>
+    <home-page></home-page>
   </div>
 </template>
 
 <script>
-  import LandingPage from '@/components/LandingPage'
+import HomePage from '@/components/home-page'
 
-  export default {
-    name: 'ldq-diff-tool',
-    components: {
-      LandingPage
-    }
+export default {
+  name: 'ldq-diff-tool',
+  components: {
+    HomePage
   }
+}
 </script>
 
 <style>
-  /* CSS */
+/* CSS */
 </style>

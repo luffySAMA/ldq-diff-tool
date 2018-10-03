@@ -6,7 +6,7 @@
   "license": null,
   "main": "./dist/electron/main.js",
   "scripts": {
-    "build": "node .electron-vue/build.js && electron-builder",
+    "build": "node .electron-vue/build.js && electron-builder --win",
     "build:dir": "node .electron-vue/build.js && electron-builder --dir",
     "build:clean": "cross-env BUILD_TARGET=clean node .electron-vue/build.js",
     "build:web": "cross-env BUILD_TARGET=web node .electron-vue/build.js",
@@ -48,14 +48,36 @@
     "mac": {
       "icon": "build/icons/icon.icns"
     },
-    "win": {
-      "icon": "build/icons/icon.ico"
-    },
     "linux": {
       "icon": "build/icons"
+    },
+    "nsis": {
+      "artifactName": "${productName}_Setup_${version}.${ext}",
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "differentialPackage": true
+    },
+    "win": {
+      "icon": "build/icons/icon.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "publish": {
+      "provider": "github",
+      "repo": "ldq-diff-tool",
+      "owner": "luffySAMA",
+      "releaseType": "release"
     }
   },
   "dependencies": {
+    "node-xlsx": "^0.12.1",
     "vue": "^2.5.16",
     "vue-electron": "^1.0.6"
   },

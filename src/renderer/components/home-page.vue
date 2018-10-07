@@ -2,11 +2,11 @@
   <div id="wrapper">
     <main>
       <div class="left-side">
-        <folder-area v-on:changed="folderChanged($event)"></folder-area>
+        <excel-area v-on:changed="dataChanged($event)"></excel-area>
       </div>
 
       <div class="right-side">
-        <excel-area v-on:changed="dataChanged($event)"></excel-area>
+        <folder-area v-on:changed="folderChanged($event)"></folder-area>
       </div>
     </main>
   </div>

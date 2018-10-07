@@ -7,11 +7,13 @@
     </div>
     <table id="excel-data-table" class="data-table" v-if="dataList.length > 0">
       <tr>
+        <th>行号</th>
         <th>编号</th>
         <th>数字编号</th>
         <th>姓名</th>
       </tr>
-      <tr v-for="data in dataList" :class="{highlight: data.isHighlight}">
+      <tr v-for="(data, index) in dataList" :class="{highlight: data.isHighlight}">
+        <td>{{index+1}}</td>
         <td>{{data.code}}</td>
         <td>{{data.number}}</td>
         <td>{{data.name}}</td>
@@ -43,7 +45,7 @@ export default {
           if (index >= 3 && row !== undefined && row.length > 0) {
             let number = this.parseNumber(row[0])
             if (number !== '') {
-              let data = { code: row[0], number: number, name: row[2], isHighlight: false }
+              let data = { code: row[0], number: number, name: row[1], isHighlight: false }
               this.dataList.push(data)
             }
           }
